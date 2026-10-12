@@ -9,9 +9,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class AndroidKeyStoreSecretKeysTest {
+class AesGcmKeysTest {
 
-    private val keys = AndroidKeyStoreSecretKeys()
+    private val keys = AesGcmKeys.store()
     private val cipher = AesGcmCipher()
 
     @After
