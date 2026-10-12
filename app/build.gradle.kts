@@ -29,6 +29,7 @@ dependencies {
     implementation(projects.feature.aesgcm)
     implementation(projects.feature.rsaoaep)
     implementation(projects.feature.ecdsa)
+    implementation(projects.feature.hmac)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
