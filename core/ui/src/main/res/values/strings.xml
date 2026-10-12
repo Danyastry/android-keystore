@@ -1,0 +1,14 @@
+<resources>
+    <string name="category_encryption">Encryption</string>
+    <string name="category_signing">Signatures and MACs</string>
+    <string name="category_user_authentication">User authentication</string>
+    <string name="category_hardware">Hardware security</string>
+    <string name="category_key_management">Key management</string>
+    <string name="category_encryption_description">Keys that never leave secure hardware</string>
+    <string name="category_signing_description">Prove who wrote the data and that nobody changed it</string>
+    <string name="category_user_authentication_description">Keys that unlock only with a fingerprint, face or PIN</string>
+    <string name="category_hardware_description">Where the key lives and how to prove it</string>
+    <string name="category_key_management_description">Import, list, rotate and delete keys</string>
+    <string name="requirement_android">Android %1$s+</string>
+    <string name="requirement_needs_android">Needs Android %1$s</string>
+</resources>
