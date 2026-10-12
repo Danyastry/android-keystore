@@ -1,0 +1,17 @@
+<resources>
+    <string name="ecdsa_key_title">EC P-256 key pair</string>
+    <string name="ecdsa_key_missing">No key pair yet</string>
+    <string name="ecdsa_public_key">Public key. Anyone can use it to check signatures.</string>
+    <string name="ecdsa_private_hidden">The private key signs inside the Keystore and cannot be read.</string>
+    <string name="ecdsa_private_visible">The private key is readable</string>
+    <string name="ecdsa_create_key">Create key pair</string>
+    <string name="ecdsa_delete_key">Delete</string>
+    <string name="ecdsa_message">Message</string>
+    <string name="ecdsa_message_hint">Sign it, then change one letter</string>
+    <string name="ecdsa_sign">Sign</string>
+    <string name="ecdsa_signature">Signature</string>
+    <string name="ecdsa_signature_size">Size in bytes: %1$d. Signing twice gives a different signature, both valid.</string>
+    <string name="ecdsa_valid">Valid: this device signed exactly this message</string>
+    <string name="ecdsa_invalid">Invalid: the message or the signature was changed</string>
+    <string name="ecdsa_not_base64">The signature is not valid Base64</string>
+</resources>
