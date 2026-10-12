@@ -13,6 +13,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             add("implementation", libs.library("androidx-material3"))
             add("implementation", libs.library("androidx-lifecycle-viewmodel-compose"))
             add("implementation", libs.library("androidx-lifecycle-runtime-compose"))
+            add("testImplementation", libs.library("kotlinx-coroutines-test"))
         }
     }
 }

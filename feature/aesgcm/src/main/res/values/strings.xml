@@ -1,0 +1,15 @@
+<resources>
+    <string name="aesgcm_key_title">AES-256 key</string>
+    <string name="aesgcm_key_missing">No key yet</string>
+    <string name="aesgcm_key_hidden">Created in the Keystore. The app can use it but can never read it.</string>
+    <string name="aesgcm_key_visible">Created, but its bytes are readable</string>
+    <string name="aesgcm_create_key">Create key</string>
+    <string name="aesgcm_delete_key">Delete</string>
+    <string name="aesgcm_hint_encrypt">A new random IV every time, so the same text never looks the same</string>
+    <string name="aesgcm_hint_decrypt">Paste the Base64 from Encrypt</string>
+    <string name="aesgcm_error_no_key">Create a key first</string>
+    <string name="aesgcm_error_invalid">Not a valid message. Paste the Base64 from Encrypt.</string>
+    <string name="aesgcm_error_tampered">The data was changed. GCM refuses to decrypt it.</string>
+    <string name="aesgcm_iv">IV: %1$s</string>
+    <string name="aesgcm_flip_bit">Flip one bit</string>
+</resources>
