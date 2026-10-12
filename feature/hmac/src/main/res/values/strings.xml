@@ -1,0 +1,16 @@
+<resources>
+    <string name="hmac_key_title">HMAC key</string>
+    <string name="hmac_key_missing">No key yet</string>
+    <string name="hmac_key_hidden">A secret key in the Keystore. Whoever checks the tag needs the same key.</string>
+    <string name="hmac_key_visible">The key bytes are readable</string>
+    <string name="hmac_create_key">Create key</string>
+    <string name="hmac_delete_key">Delete</string>
+    <string name="hmac_message">Message</string>
+    <string name="hmac_message_hint">Compute the tag, then change one letter</string>
+    <string name="hmac_compute">Compute tag</string>
+    <string name="hmac_tag">Tag (hex)</string>
+    <string name="hmac_tag_hint">Always 32 bytes and the same for the same message. Compared in constant time.</string>
+    <string name="hmac_valid">Valid: the message was not changed</string>
+    <string name="hmac_invalid">Invalid: the message or the tag was changed</string>
+    <string name="hmac_not_hex">The tag is not valid hex</string>
+</resources>
