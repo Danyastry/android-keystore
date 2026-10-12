@@ -2,11 +2,11 @@ package com.danyastry.keystore.feature.aesgcm.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.danyastry.keystore.core.keystore.SecretKeyStore
 import com.danyastry.keystore.core.ui.components.CipherMode
 import com.danyastry.keystore.feature.aesgcm.AesGcmCipher
-import com.danyastry.keystore.feature.aesgcm.AndroidKeyStoreSecretKeys
+import com.danyastry.keystore.feature.aesgcm.AesGcmKeys
 import com.danyastry.keystore.feature.aesgcm.EncryptedMessage
-import com.danyastry.keystore.feature.aesgcm.SecretKeyStore
 import java.security.GeneralSecurityException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class AesGcmViewModel(
-    private val keys: SecretKeyStore = AndroidKeyStoreSecretKeys(),
+    private val keys: SecretKeyStore = AesGcmKeys.store(),
     private val cipher: AesGcmCipher = AesGcmCipher(),
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default,
 ) : ViewModel() {

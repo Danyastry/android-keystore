@@ -1,7 +1,7 @@
 package com.danyastry.keystore.feature.rsaoaep.ui
 
+import com.danyastry.keystore.core.keystore.KeyPairStore
 import com.danyastry.keystore.core.ui.components.CipherMode
-import com.danyastry.keystore.feature.rsaoaep.KeyPairStore
 import com.danyastry.keystore.feature.rsaoaep.RsaOaepCipher
 import com.google.common.truth.Truth.assertThat
 import java.security.KeyPair

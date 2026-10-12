@@ -9,9 +9,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class AndroidKeyStoreRsaKeysTest {
+class RsaOaepKeysTest {
 
-    private val keys = AndroidKeyStoreRsaKeys()
+    private val keys = RsaOaepKeys.store()
     private val cipher = RsaOaepCipher()
 
     @After

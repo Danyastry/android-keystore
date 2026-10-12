@@ -2,10 +2,10 @@ package com.danyastry.keystore.feature.rsaoaep.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.danyastry.keystore.core.keystore.KeyPairStore
 import com.danyastry.keystore.core.ui.components.CipherMode
-import com.danyastry.keystore.feature.rsaoaep.AndroidKeyStoreRsaKeys
-import com.danyastry.keystore.feature.rsaoaep.KeyPairStore
 import com.danyastry.keystore.feature.rsaoaep.RsaOaepCipher
+import com.danyastry.keystore.feature.rsaoaep.RsaOaepKeys
 import java.security.GeneralSecurityException
 import java.util.Base64
 import kotlinx.coroutines.CoroutineDispatcher
@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class RsaOaepViewModel(
-    private val keys: KeyPairStore = AndroidKeyStoreRsaKeys(),
+    private val keys: KeyPairStore = RsaOaepKeys.store(),
     private val cipher: RsaOaepCipher = RsaOaepCipher(),
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default,
 ) : ViewModel() {

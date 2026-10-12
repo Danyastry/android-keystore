@@ -1,8 +1,8 @@
 package com.danyastry.keystore.feature.aesgcm.ui
 
+import com.danyastry.keystore.core.keystore.SecretKeyStore
 import com.danyastry.keystore.core.ui.components.CipherMode
 import com.danyastry.keystore.feature.aesgcm.EncryptedMessage
-import com.danyastry.keystore.feature.aesgcm.SecretKeyStore
 import com.google.common.truth.Truth.assertThat
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey

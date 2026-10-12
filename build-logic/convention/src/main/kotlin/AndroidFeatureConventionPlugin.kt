@@ -9,6 +9,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
         pluginManager.apply("keystore.android.library.compose")
 
         dependencies {
+            add("implementation", project(":core:keystore"))
             add("implementation", project(":core:ui"))
             add("implementation", libs.library("androidx-material3"))
             add("implementation", libs.library("androidx-lifecycle-viewmodel-compose"))
