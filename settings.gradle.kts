@@ -28,3 +28,4 @@ include(":app")
 include(":core:ui")
 
 include(":feature:aesgcm")
+include(":feature:rsaoaep")
