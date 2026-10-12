@@ -11,4 +11,10 @@
     <string name="category_key_management_description">Import, list, rotate and delete keys</string>
     <string name="requirement_android">Android %1$s+</string>
     <string name="requirement_needs_android">Needs Android %1$s</string>
+    <string name="mode_encrypt">Encrypt</string>
+    <string name="mode_decrypt">Decrypt</string>
+    <string name="label_plaintext">Plaintext</string>
+    <string name="label_ciphertext">Ciphertext</string>
+    <string name="output_placeholder">Type something above</string>
+    <string name="use_output_as_input">Use as input</string>
 </resources>

@@ -26,3 +26,5 @@ rootProject.name = "android-keystore"
 
 include(":app")
 include(":core:ui")
+
+include(":feature:aesgcm")
