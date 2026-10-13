@@ -6,6 +6,7 @@ import com.danyastry.keystore.feature.ecdsa.EcdsaFeature
 import com.danyastry.keystore.feature.hmac.HmacFeature
 import com.danyastry.keystore.feature.keyinfo.KeyInfoFeature
 import com.danyastry.keystore.feature.rsaoaep.RsaOaepFeature
+import com.danyastry.keystore.feature.strongbox.StrongBoxFeature
 
 object FeatureRegistry {
     val features: List<FeatureEntry> = listOf(
@@ -14,5 +15,6 @@ object FeatureRegistry {
         EcdsaFeature,
         HmacFeature,
         KeyInfoFeature,
+        StrongBoxFeature,
     )
 }

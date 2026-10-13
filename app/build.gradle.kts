@@ -31,6 +31,7 @@ dependencies {
     implementation(projects.feature.ecdsa)
     implementation(projects.feature.hmac)
     implementation(projects.feature.keyinfo)
+    implementation(projects.feature.strongbox)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
