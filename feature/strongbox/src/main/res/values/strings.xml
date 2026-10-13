@@ -1,0 +1,18 @@
+<resources>
+    <string name="strongbox_intro">StrongBox is a separate security chip with its own processor, memory and clock. It resists physical attacks that the main processor cannot, but it is much slower.</string>
+    <string name="strongbox_declared">This device declares StrongBox</string>
+    <string name="strongbox_not_declared">This device has no StrongBox</string>
+    <string name="strongbox_create">Create both keys</string>
+    <string name="strongbox_delete">Delete</string>
+    <string name="strongbox_regular_key">Regular key</string>
+    <string name="strongbox_strongbox_key">StrongBox key</string>
+    <string name="strongbox_stored_in">Stored in: %1$s</string>
+    <string name="strongbox_unavailable">Not created: the Keystore threw StrongBoxUnavailableException</string>
+    <string name="strongbox_measure">Speed test: encrypt 1 KB with each key (rounds: %1$d)</string>
+    <string name="strongbox_timing">Time: %1$d ms</string>
+    <string name="strongbox_location_strongbox">StrongBox</string>
+    <string name="strongbox_location_tee">TEE</string>
+    <string name="strongbox_location_secure_hardware">secure hardware</string>
+    <string name="strongbox_location_software">software</string>
+    <string name="strongbox_location_unknown">unknown</string>
+</resources>
