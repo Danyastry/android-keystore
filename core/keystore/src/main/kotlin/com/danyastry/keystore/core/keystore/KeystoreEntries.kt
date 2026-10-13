@@ -1,9 +1,13 @@
 package com.danyastry.keystore.core.keystore
 
+import android.os.Build
+import android.security.keystore.KeyInfo
+import java.security.KeyFactory
 import java.security.KeyPair
 import java.security.KeyStore
 import java.security.PrivateKey
 import javax.crypto.SecretKey
+import javax.crypto.SecretKeyFactory
 
 class KeystoreEntries {
 
@@ -24,6 +28,33 @@ class KeystoreEntries {
         val publicKey = keyStore.getCertificate(alias)?.publicKey ?: return null
         return KeyPair(publicKey, privateKey)
     }
+
+    fun details(alias: String): KeyDetails? {
+        val key = keyStore.getKey(alias, null) ?: return null
+        val (info, kind) = when (key) {
+            is SecretKey -> SecretKeyFactory.getInstance(key.algorithm, ANDROID_KEY_STORE)
+                .getKeySpec(key, KeyInfo::class.java) as KeyInfo to KeyKind.SECRET
+            is PrivateKey -> KeyFactory.getInstance(key.algorithm, ANDROID_KEY_STORE)
+                .getKeySpec(key, KeyInfo::class.java) to KeyKind.PRIVATE
+            else -> return null
+        }
+        return KeyDetails(
+            alias = alias,
+            algorithm = key.algorithm,
+            sizeBits = info.keySize,
+            kind = kind,
+            location = KeyInfoMapper.location(securityLevelOf(info), insideSecureHardware(info)),
+            purposes = KeyInfoMapper.purposes(info.purposes),
+            origin = KeyInfoMapper.origin(info.origin),
+            requiresUserAuthentication = info.isUserAuthenticationRequired,
+        )
+    }
+
+    private fun securityLevelOf(info: KeyInfo): Int? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) info.securityLevel else null
+
+    @Suppress("DEPRECATION")
+    private fun insideSecureHardware(info: KeyInfo): Boolean = info.isInsideSecureHardware
 
     companion object {
         const val ANDROID_KEY_STORE = "AndroidKeyStore"

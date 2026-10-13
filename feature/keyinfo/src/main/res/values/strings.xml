@@ -1,0 +1,29 @@
+<resources>
+    <string name="keyinfo_intro">Every key this app created, and where the Keystore really keeps it. Keys from the other screens show up here too.</string>
+    <string name="keyinfo_create_sample">Create sample key</string>
+    <string name="keyinfo_refresh">Refresh</string>
+    <string name="keyinfo_empty">No keys yet. Create one here or on another screen.</string>
+    <string name="keyinfo_algorithm">Algorithm</string>
+    <string name="keyinfo_algorithm_value">%1$s-%2$d, %3$s</string>
+    <string name="keyinfo_purposes">Can</string>
+    <string name="keyinfo_origin">Origin</string>
+    <string name="keyinfo_user_auth">Needs unlock</string>
+    <string name="keyinfo_yes">Yes</string>
+    <string name="keyinfo_no">No</string>
+    <string name="keyinfo_kind_secret">secret key</string>
+    <string name="keyinfo_kind_private">private key</string>
+    <string name="keyinfo_origin_generated">Created on this device</string>
+    <string name="keyinfo_origin_imported">Imported</string>
+    <string name="keyinfo_origin_securely_imported">Imported in wrapped form</string>
+    <string name="keyinfo_origin_unknown">Unknown</string>
+    <string name="keyinfo_location_strongbox">StrongBox</string>
+    <string name="keyinfo_location_tee">TEE</string>
+    <string name="keyinfo_location_secure_hardware">Secure hardware</string>
+    <string name="keyinfo_location_software">Software</string>
+    <string name="keyinfo_location_unknown">Unknown</string>
+    <string name="keyinfo_location_strongbox_description">A separate security chip with its own CPU and memory. The strongest option.</string>
+    <string name="keyinfo_location_tee_description">The trusted environment inside the main processor. Android itself cannot read the key.</string>
+    <string name="keyinfo_location_secure_hardware_description">Kept in secure hardware. Older Android versions do not say which kind.</string>
+    <string name="keyinfo_location_software_description">Kept by Android in software. Emulators and some old phones do this.</string>
+    <string name="keyinfo_location_unknown_description">The Keystore did not report where the key lives.</string>
+</resources>
