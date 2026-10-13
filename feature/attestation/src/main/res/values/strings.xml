@@ -1,0 +1,25 @@
+<resources>
+    <string name="attestation_intro">The Keystore signs a certificate chain for a new key. A server sends a random challenge, gets the chain back and learns where the key lives and what it may do.</string>
+    <string name="attestation_run">Attest a new key</string>
+    <string name="attestation_failed">Attestation failed: %1$s</string>
+    <string name="attestation_what_it_says">What the certificate says</string>
+    <string name="attestation_key_level">Key is kept in</string>
+    <string name="attestation_keymaster">Keymaster</string>
+    <string name="attestation_version_at">version %1$d, %2$s</string>
+    <string name="attestation_version">Attestation version</string>
+    <string name="attestation_challenge">Challenge</string>
+    <string name="attestation_matches">matches the one we sent</string>
+    <string name="attestation_differs">does not match</string>
+    <string name="attestation_signatures">Signatures</string>
+    <string name="attestation_signed">each certificate is signed by the next</string>
+    <string name="attestation_broken">the chain is broken</string>
+    <string name="attestation_chain">Certificate chain: %1$d</string>
+    <string name="attestation_chain_leaf">Key certificate</string>
+    <string name="attestation_chain_middle">Intermediate</string>
+    <string name="attestation_chain_root">Root</string>
+    <string name="attestation_server_note">A real server must also check that the root is Google\'s attestation key and that no certificate is revoked. On an emulator the root is a software key, so the result cannot be trusted.</string>
+    <string name="attestation_level_software">software</string>
+    <string name="attestation_level_tee">TEE</string>
+    <string name="attestation_level_strongbox">StrongBox</string>
+    <string name="attestation_level_unknown">unknown</string>
+</resources>

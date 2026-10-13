@@ -32,6 +32,7 @@ dependencies {
     implementation(projects.feature.hmac)
     implementation(projects.feature.keyinfo)
     implementation(projects.feature.strongbox)
+    implementation(projects.feature.attestation)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)

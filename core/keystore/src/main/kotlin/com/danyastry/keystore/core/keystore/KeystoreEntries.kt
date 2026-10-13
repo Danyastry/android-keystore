@@ -6,6 +6,7 @@ import java.security.KeyFactory
 import java.security.KeyPair
 import java.security.KeyStore
 import java.security.PrivateKey
+import java.security.cert.X509Certificate
 import javax.crypto.SecretKey
 import javax.crypto.SecretKeyFactory
 
@@ -28,6 +29,9 @@ class KeystoreEntries {
         val publicKey = keyStore.getCertificate(alias)?.publicKey ?: return null
         return KeyPair(publicKey, privateKey)
     }
+
+    fun certificateChain(alias: String): List<X509Certificate> =
+        keyStore.getCertificateChain(alias)?.map { it as X509Certificate }.orEmpty()
 
     fun details(alias: String): KeyDetails? {
         val key = keyStore.getKey(alias, null) ?: return null
