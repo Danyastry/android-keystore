@@ -30,6 +30,7 @@ dependencies {
     implementation(projects.feature.rsaoaep)
     implementation(projects.feature.ecdsa)
     implementation(projects.feature.hmac)
+    implementation(projects.feature.keyinfo)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
