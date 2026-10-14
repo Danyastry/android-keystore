@@ -5,6 +5,7 @@ import com.danyastry.keystore.feature.aesgcm.AesGcmFeature
 import com.danyastry.keystore.feature.attestation.AttestationFeature
 import com.danyastry.keystore.feature.authtimeout.AuthTimeoutFeature
 import com.danyastry.keystore.feature.biometric.BiometricFeature
+import com.danyastry.keystore.feature.ecdh.EcdhFeature
 import com.danyastry.keystore.feature.ecdsa.EcdsaFeature
 import com.danyastry.keystore.feature.hmac.HmacFeature
 import com.danyastry.keystore.feature.keyinfo.KeyInfoFeature
@@ -24,5 +25,6 @@ object FeatureRegistry {
         BiometricFeature,
         AuthTimeoutFeature,
         UnlockedDeviceFeature,
+        EcdhFeature,
     )
 }

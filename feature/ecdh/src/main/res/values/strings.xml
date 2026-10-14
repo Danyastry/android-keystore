@@ -1,0 +1,31 @@
+<resources>
+    <string name="ecdh_device_title">This device</string>
+    <string name="ecdh_device_missing">No key pair yet</string>
+    <string name="ecdh_device_ready">P-256 key pair in the Keystore, purpose AGREE_KEY. The private key never leaves it.</string>
+    <string name="ecdh_create_key">Create key pair</string>
+    <string name="ecdh_delete_key">Delete</string>
+    <string name="ecdh_peer_title">Peer</string>
+    <string name="ecdh_peer_description">Another party, like a server. Its P-256 key pair lives in normal app memory.</string>
+    <string name="ecdh_new_peer">New peer</string>
+    <string name="ecdh_public_key">Public key: %1$s</string>
+    <string name="ecdh_agree_title">Agreement</string>
+    <string name="ecdh_agree_hint">Each side combines its own private key with the other side\'s public key. Only public keys are exchanged.</string>
+    <string name="ecdh_agree">Agree on a key</string>
+    <string name="ecdh_device_secret">Device secret: %1$s</string>
+    <string name="ecdh_peer_secret">Peer secret: %1$s</string>
+    <string name="ecdh_secrets_match">Both sides got the same secret</string>
+    <string name="ecdh_secrets_differ">The secrets differ</string>
+    <string name="ecdh_session_key">AES-256 key from HKDF-SHA256: %1$s</string>
+    <string name="ecdh_secret_note">The shared secret is returned to the app. The Keystore guards only the private key.</string>
+    <string name="ecdh_input_label">Message from the device</string>
+    <string name="ecdh_encrypt">Encrypt on device</string>
+    <string name="ecdh_decrypt">Decrypt on peer</string>
+    <string name="ecdh_sealed_label">Ciphertext sent to the peer</string>
+    <string name="ecdh_sealed_empty">Nothing sent yet</string>
+    <string name="ecdh_peer_decrypted">Peer read: %1$s</string>
+    <string name="ecdh_error_key_creation_failed">The Keystore refused to create the key pair</string>
+    <string name="ecdh_error_no_device_key">Create the device key pair first</string>
+    <string name="ecdh_error_not_agreed">Agree on a key first</string>
+    <string name="ecdh_error_invalid_message">Not a valid message</string>
+    <string name="ecdh_error_peer_cannot_decrypt">This peer cannot read the message. It was encrypted for a different key.</string>
+</resources>
