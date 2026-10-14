@@ -34,6 +34,7 @@ dependencies {
     implementation(projects.feature.strongbox)
     implementation(projects.feature.attestation)
     implementation(projects.feature.biometric)
+    implementation(projects.feature.authtimeout)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
