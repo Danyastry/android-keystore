@@ -1,0 +1,28 @@
+<resources>
+    <string name="unlockeddevice_status_title">Screen lock</string>
+    <string name="unlockeddevice_status_checking">Checking…</string>
+    <string name="unlockeddevice_status_secure">A PIN, pattern or password is set, so the device can be really locked</string>
+    <string name="unlockeddevice_status_not_secure">No screen lock. Without one the device never counts as locked and both keys always work.</string>
+    <string name="unlockeddevice_open_settings">Open security settings</string>
+    <string name="unlockeddevice_keys_title">Two AES-256 keys</string>
+    <string name="unlockeddevice_key_regular">Regular key: works any time</string>
+    <string name="unlockeddevice_key_unlocked_only">Unlocked-only key: setUnlockedDeviceRequired(true)</string>
+    <string name="unlockeddevice_keys_missing">No keys yet</string>
+    <string name="unlockeddevice_keys_failed">The Keystore refused to create the keys</string>
+    <string name="unlockeddevice_create_keys">Create keys</string>
+    <string name="unlockeddevice_delete_keys">Delete</string>
+    <string name="unlockeddevice_test_title">Try both keys</string>
+    <string name="unlockeddevice_test_hint">Tap Test in %1$d s, then press the power button to lock the screen. Unlock after the timer and look at the results.</string>
+    <string name="unlockeddevice_test_now">Test now</string>
+    <string name="unlockeddevice_test_later">Test in %1$d s</string>
+    <string name="unlockeddevice_countdown">Testing in %1$d s. Lock the screen now.</string>
+    <string name="unlockeddevice_cancel">Cancel</string>
+    <string name="unlockeddevice_rounds_title">Keystore answers</string>
+    <string name="unlockeddevice_rounds_empty">No tests yet</string>
+    <string name="unlockeddevice_round_locked">#%1$d, screen locked</string>
+    <string name="unlockeddevice_round_unlocked">#%1$d, screen unlocked</string>
+    <string name="unlockeddevice_result_regular_allowed">Regular key: allowed</string>
+    <string name="unlockeddevice_result_regular_refused">Regular key: refused (%1$s)</string>
+    <string name="unlockeddevice_result_unlocked_only_allowed">Unlocked-only key: allowed</string>
+    <string name="unlockeddevice_result_unlocked_only_refused">Unlocked-only key: refused (%1$s)</string>
+</resources>

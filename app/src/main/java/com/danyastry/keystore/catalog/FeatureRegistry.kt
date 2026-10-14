@@ -10,6 +10,7 @@ import com.danyastry.keystore.feature.hmac.HmacFeature
 import com.danyastry.keystore.feature.keyinfo.KeyInfoFeature
 import com.danyastry.keystore.feature.rsaoaep.RsaOaepFeature
 import com.danyastry.keystore.feature.strongbox.StrongBoxFeature
+import com.danyastry.keystore.feature.unlockeddevice.UnlockedDeviceFeature
 
 object FeatureRegistry {
     val features: List<FeatureEntry> = listOf(
@@ -22,5 +23,6 @@ object FeatureRegistry {
         AttestationFeature,
         BiometricFeature,
         AuthTimeoutFeature,
+        UnlockedDeviceFeature,
     )
 }

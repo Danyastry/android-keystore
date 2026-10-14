@@ -35,6 +35,7 @@ dependencies {
     implementation(projects.feature.attestation)
     implementation(projects.feature.biometric)
     implementation(projects.feature.authtimeout)
+    implementation(projects.feature.unlockeddevice)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
