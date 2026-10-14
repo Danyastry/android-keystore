@@ -1,5 +1,6 @@
 package com.danyastry.keystore.feature.aesgcm
 
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.google.common.truth.Truth.assertThat
 import javax.crypto.AEADBadTagException
 import javax.crypto.KeyGenerator
@@ -79,25 +80,8 @@ class AesGcmCipherTest {
         assertThat(cipher.decrypt(message, key)).isEmpty()
     }
 
-    @Test
-    fun `message survives base64`() {
-        val message = cipher.encrypt("Hello".encodeToByteArray(), key)
 
-        assertThat(EncryptedMessage.fromBase64OrNull(message.toBase64())).isEqualTo(message)
-        assertThat(EncryptedMessage.fromBase64OrNull(" " + message.toBase64() + "\n")).isEqualTo(message)
-    }
 
-    @Test
-    fun `rejects text that is not a message`() {
-        assertThat(EncryptedMessage.fromBase64OrNull("not base64!")).isNull()
-        assertThat(EncryptedMessage.fromBase64OrNull("AAAA")).isNull()
-        assertThat(EncryptedMessage.fromBase64OrNull("")).isNull()
-    }
-
-    @Test
-    fun `rejects a wrong iv size`() {
-        assertThrows(IllegalArgumentException::class.java) { EncryptedMessage(ByteArray(16), ByteArray(16)) }
-    }
 
     private fun newKey(): SecretKey = KeyGenerator.getInstance("AES").apply { init(256) }.generateKey()
 

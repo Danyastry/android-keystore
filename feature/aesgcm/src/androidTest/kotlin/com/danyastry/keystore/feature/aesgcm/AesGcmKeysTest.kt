@@ -1,6 +1,7 @@
 package com.danyastry.keystore.feature.aesgcm
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.google.common.truth.Truth.assertThat
 import javax.crypto.AEADBadTagException
 import org.junit.After

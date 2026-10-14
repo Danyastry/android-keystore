@@ -1,5 +1,6 @@
 package com.danyastry.keystore.feature.biometric
 
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.google.common.truth.Truth.assertThat
 import javax.crypto.AEADBadTagException
 import javax.crypto.KeyGenerator
@@ -45,19 +46,5 @@ class AesGcmBiometricCryptoTest {
         assertThrows(AEADBadTagException::class.java) { crypto.open(crypto.decryptionCipher(key, sealed.iv), tampered) }
     }
 
-    @Test
-    fun `base64 round trip keeps IV and ciphertext`() {
-        val sealed = crypto.seal(crypto.encryptionCipher(key), "Hello".encodeToByteArray())
 
-        val restored = SealedMessage.fromBase64OrNull(sealed.toBase64())!!
-
-        assertThat(restored.iv).isEqualTo(sealed.iv)
-        assertThat(restored.ciphertext).isEqualTo(sealed.ciphertext)
-    }
-
-    @Test
-    fun `invalid base64 or too short data is rejected`() {
-        assertThat(SealedMessage.fromBase64OrNull("not base64!")).isNull()
-        assertThat(SealedMessage.fromBase64OrNull("AAAA")).isNull()
-    }
 }

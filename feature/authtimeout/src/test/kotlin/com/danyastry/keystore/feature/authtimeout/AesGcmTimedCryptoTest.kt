@@ -1,5 +1,6 @@
 package com.danyastry.keystore.feature.authtimeout
 
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.google.common.truth.Truth.assertThat
 import javax.crypto.AEADBadTagException
 import javax.crypto.KeyGenerator
@@ -32,22 +33,8 @@ class AesGcmTimedCryptoTest {
         val sealed = crypto.encrypt(key, "Hello".encodeToByteArray())
         val tampered = sealed.ciphertext.copyOf().also { it[0] = (it[0].toInt() xor 1).toByte() }
 
-        assertThrows(AEADBadTagException::class.java) { crypto.decrypt(key, SealedMessage(sealed.iv, tampered)) }
+        assertThrows(AEADBadTagException::class.java) { crypto.decrypt(key, EncryptedMessage(sealed.iv, tampered)) }
     }
 
-    @Test
-    fun `base64 round trip keeps IV and ciphertext`() {
-        val sealed = crypto.encrypt(key, "Hello".encodeToByteArray())
 
-        val restored = SealedMessage.fromBase64OrNull(sealed.toBase64())!!
-
-        assertThat(restored.iv).isEqualTo(sealed.iv)
-        assertThat(restored.ciphertext).isEqualTo(sealed.ciphertext)
-    }
-
-    @Test
-    fun `invalid base64 or too short data is rejected`() {
-        assertThat(SealedMessage.fromBase64OrNull("not base64!")).isNull()
-        assertThat(SealedMessage.fromBase64OrNull("AAAA")).isNull()
-    }
 }
