@@ -6,6 +6,7 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.danyastry.keystore.core.keystore.KeystoreEntries
 import com.google.common.truth.Truth.assertThat
 import java.security.GeneralSecurityException
@@ -66,7 +67,7 @@ class BiometricKeysTest {
 
         val cipher = crypto.encryptionCipher(key)
 
-        assertThat(cipher.iv).hasLength(AesGcmBiometricCrypto.IV_SIZE)
+        assertThat(cipher.iv).hasLength(EncryptedMessage.IV_SIZE)
     }
 
     @Test

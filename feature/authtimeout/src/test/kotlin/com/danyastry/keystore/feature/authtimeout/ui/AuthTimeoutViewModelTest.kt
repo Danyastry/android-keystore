@@ -1,10 +1,10 @@
 package com.danyastry.keystore.feature.authtimeout.ui
 
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.danyastry.keystore.core.keystore.SecretKeyStore
 import com.danyastry.keystore.feature.authtimeout.AesGcmTimedCrypto
 import com.danyastry.keystore.feature.authtimeout.CredentialAvailability
 import com.danyastry.keystore.feature.authtimeout.KeyLockedException
-import com.danyastry.keystore.feature.authtimeout.SealedMessage
 import com.danyastry.keystore.feature.authtimeout.TimedCrypto
 import com.google.common.truth.Truth.assertThat
 import java.security.InvalidKeyException
@@ -108,7 +108,7 @@ class AuthTimeoutViewModelTest {
         runCurrent()
 
         assertThat(state.error).isNull()
-        assertThat(SealedMessage.fromBase64OrNull(state.sealed)).isNotNull()
+        assertThat(EncryptedMessage.fromBase64OrNull(state.sealed)).isNotNull()
         assertThat(state.attempts.map { it.isAllowed }).containsExactly(true, true)
     }
 
@@ -255,9 +255,9 @@ class AuthTimeoutViewModelTest {
             unlockedAt = now()
         }
 
-        override fun encrypt(key: SecretKey, plaintext: ByteArray): SealedMessage = checked { real.encrypt(key, plaintext) }
+        override fun encrypt(key: SecretKey, plaintext: ByteArray): EncryptedMessage = checked { real.encrypt(key, plaintext) }
 
-        override fun decrypt(key: SecretKey, message: SealedMessage): ByteArray = checked { real.decrypt(key, message) }
+        override fun decrypt(key: SecretKey, message: EncryptedMessage): ByteArray = checked { real.decrypt(key, message) }
 
         private fun <T> checked(operation: () -> T): T {
             val start = unlockedAt

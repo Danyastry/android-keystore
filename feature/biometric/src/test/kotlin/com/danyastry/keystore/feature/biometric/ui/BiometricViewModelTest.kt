@@ -1,11 +1,11 @@
 package com.danyastry.keystore.feature.biometric.ui
 
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.danyastry.keystore.core.keystore.SecretKeyStore
 import com.danyastry.keystore.feature.biometric.AesGcmBiometricCrypto
 import com.danyastry.keystore.feature.biometric.BiometricAvailability
 import com.danyastry.keystore.feature.biometric.BiometricCrypto
 import com.danyastry.keystore.feature.biometric.KeyInvalidatedException
-import com.danyastry.keystore.feature.biometric.SealedMessage
 import com.google.common.truth.Truth.assertThat
 import java.security.InvalidAlgorithmParameterException
 import java.security.InvalidKeyException
@@ -112,7 +112,7 @@ class BiometricViewModelTest {
 
         assertThat(state.isAwaitingAuth).isFalse()
         assertThat(state.error).isNull()
-        assertThat(SealedMessage.fromBase64OrNull(state.sealed)).isNotNull()
+        assertThat(EncryptedMessage.fromBase64OrNull(state.sealed)).isNotNull()
     }
 
     @Test
@@ -230,7 +230,7 @@ class BiometricViewModelTest {
 
         override fun decryptionCipher(key: SecretKey, iv: ByteArray): Cipher = check { real.decryptionCipher(key, iv) }
 
-        override fun seal(cipher: Cipher, plaintext: ByteArray): SealedMessage = use(cipher) { real.seal(cipher, plaintext) }
+        override fun seal(cipher: Cipher, plaintext: ByteArray): EncryptedMessage = use(cipher) { real.seal(cipher, plaintext) }
 
         override fun open(cipher: Cipher, ciphertext: ByteArray): ByteArray = use(cipher) { real.open(cipher, ciphertext) }
 

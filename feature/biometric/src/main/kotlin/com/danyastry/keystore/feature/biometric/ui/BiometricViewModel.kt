@@ -2,13 +2,13 @@ package com.danyastry.keystore.feature.biometric.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.danyastry.keystore.core.keystore.SecretKeyStore
 import com.danyastry.keystore.feature.biometric.AesGcmBiometricCrypto
 import com.danyastry.keystore.feature.biometric.BiometricCrypto
 import com.danyastry.keystore.feature.biometric.BiometricKeys
 import com.danyastry.keystore.feature.biometric.BiometricStatus
 import com.danyastry.keystore.feature.biometric.KeyInvalidatedException
-import com.danyastry.keystore.feature.biometric.SealedMessage
 import java.security.GeneralSecurityException
 import java.security.ProviderException
 import javax.crypto.Cipher
@@ -73,7 +73,7 @@ class BiometricViewModel(
     }
 
     fun onDecrypt() {
-        val message = SealedMessage.fromBase64OrNull(_state.value.sealed) ?: return
+        val message = EncryptedMessage.fromBase64OrNull(_state.value.sealed) ?: return
         requestAuth(BiometricOperation.DECRYPT, message.ciphertext) { crypto.decryptionCipher(it, message.iv) }
     }
 

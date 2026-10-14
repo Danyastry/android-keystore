@@ -5,12 +5,12 @@ import android.os.SystemClock
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.danyastry.keystore.core.keystore.SecretKeyStore
 import com.danyastry.keystore.feature.authtimeout.AesGcmTimedCrypto
 import com.danyastry.keystore.feature.authtimeout.AuthTimeoutKeys
 import com.danyastry.keystore.feature.authtimeout.CredentialStatus
 import com.danyastry.keystore.feature.authtimeout.KeyLockedException
-import com.danyastry.keystore.feature.authtimeout.SealedMessage
 import com.danyastry.keystore.feature.authtimeout.TimedCrypto
 import java.security.GeneralSecurityException
 import java.security.ProviderException
@@ -114,7 +114,7 @@ class AuthTimeoutViewModel(
     }
 
     fun onDecrypt() {
-        val message = SealedMessage.fromBase64OrNull(_state.value.sealed) ?: return
+        val message = EncryptedMessage.fromBase64OrNull(_state.value.sealed) ?: return
         attempt(TimedOperation.DECRYPT) { key ->
             val plaintext = crypto.decrypt(key, message)
             _state.update { it.copy(decrypted = plaintext.decodeToString()) }
