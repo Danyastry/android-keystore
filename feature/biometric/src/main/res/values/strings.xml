@@ -1,0 +1,31 @@
+<resources>
+    <string name="biometric_status_title">Biometrics</string>
+    <string name="biometric_status_checking">Checking…</string>
+    <string name="biometric_status_available">A strong biometric is enrolled. Keys can be bound to it.</string>
+    <string name="biometric_status_none_enrolled">No fingerprint enrolled. Set a screen lock and add a fingerprint first.</string>
+    <string name="biometric_status_no_hardware">This device has no strong biometric sensor</string>
+    <string name="biometric_status_unavailable">Biometrics are unavailable right now</string>
+    <string name="biometric_open_settings">Open security settings</string>
+    <string name="biometric_key_title">AES-256 key bound to biometrics</string>
+    <string name="biometric_key_missing">No key yet</string>
+    <string name="biometric_key_ready">Every use needs a fingerprint. Adding a new fingerprint destroys the key.</string>
+    <string name="biometric_create_key">Create key</string>
+    <string name="biometric_delete_key">Delete</string>
+    <string name="biometric_input_label">Plaintext</string>
+    <string name="biometric_encrypt">Encrypt with fingerprint</string>
+    <string name="biometric_encrypt_without_auth">Try without fingerprint</string>
+    <string name="biometric_sealed_label">Ciphertext (IV + data + tag)</string>
+    <string name="biometric_sealed_empty">Nothing encrypted yet</string>
+    <string name="biometric_decrypt">Decrypt with fingerprint</string>
+    <string name="biometric_decrypted">Decrypted: %1$s</string>
+    <string name="biometric_error_no_key">Create a key first</string>
+    <string name="biometric_error_key_creation_failed">The Keystore refused to create the key. Is a fingerprint enrolled?</string>
+    <string name="biometric_error_key_invalidated">A fingerprint was added or removed, so the Keystore destroyed this key. Delete it and create a new one.</string>
+    <string name="biometric_error_key_refused">The Keystore refused: the user is not authenticated</string>
+    <string name="biometric_error_canceled">Canceled</string>
+    <string name="biometric_error_auth_failed">Authentication failed: %1$s</string>
+    <string name="biometric_prompt_title">Use your fingerprint</string>
+    <string name="biometric_prompt_encrypt">Unlock the key to encrypt</string>
+    <string name="biometric_prompt_decrypt">Unlock the key to decrypt</string>
+    <string name="biometric_prompt_cancel">Cancel</string>
+</resources>

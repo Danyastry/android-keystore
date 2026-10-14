@@ -33,9 +33,11 @@ dependencies {
     implementation(projects.feature.keyinfo)
     implementation(projects.feature.strongbox)
     implementation(projects.feature.attestation)
+    implementation(projects.feature.biometric)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.material3)
 }
