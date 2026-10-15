@@ -1,0 +1,58 @@
+<resources>
+    <string name="envelope_key_title">RSA-2048 key pair</string>
+    <string name="envelope_key_missing">No key pair yet</string>
+    <string name="envelope_key_ready">Anyone with the public key can seal. Only this Keystore can open.</string>
+    <string name="envelope_create_key">Create key pair</string>
+    <string name="envelope_delete_key">Delete</string>
+    <string name="envelope_source_text">My text</string>
+    <string name="envelope_source_sample">64 KB sample</string>
+    <string name="envelope_input_label">Plaintext</string>
+    <plurals name="envelope_payload_size">
+        <item quantity="one">Payload: %1$d byte</item>
+        <item quantity="other">Payload: %1$d bytes</item>
+    </plurals>
+    <string name="envelope_rsa_title">RSA alone</string>
+    <plurals name="envelope_rsa_hint">
+        <item quantity="one">RSA-OAEP with SHA-256 fits at most %1$d byte in one block</item>
+        <item quantity="other">RSA-OAEP with SHA-256 fits at most %1$d bytes in one block</item>
+    </plurals>
+    <string name="envelope_rsa_only">Encrypt with RSA only</string>
+    <plurals name="envelope_rsa_allowed">
+        <item quantity="one">%1$d byte: fits in one RSA block</item>
+        <item quantity="other">%1$d bytes: fits in one RSA block</item>
+    </plurals>
+    <plurals name="envelope_rsa_refused">
+        <item quantity="one">%1$d byte: refused (%2$s)</item>
+        <item quantity="other">%1$d bytes: refused (%2$s)</item>
+    </plurals>
+    <string name="envelope_title">Envelope</string>
+    <string name="envelope_hint">A fresh AES-256 key encrypts the data with GCM. RSA wraps only that small key.</string>
+    <string name="envelope_seal">Seal envelope</string>
+    <string name="envelope_open">Open with Keystore</string>
+    <plurals name="envelope_wrapped_key">
+        <item quantity="one">Wrapped AES key: %1$d byte</item>
+        <item quantity="other">Wrapped AES key: %1$d bytes</item>
+    </plurals>
+    <plurals name="envelope_iv">
+        <item quantity="one">IV: %1$d byte</item>
+        <item quantity="other">IV: %1$d bytes</item>
+    </plurals>
+    <plurals name="envelope_ciphertext">
+        <item quantity="one">Data + GCM tag: %1$d byte</item>
+        <item quantity="other">Data + GCM tag: %1$d bytes</item>
+    </plurals>
+    <plurals name="envelope_total">
+        <item quantity="one">Envelope: %1$d byte</item>
+        <item quantity="other">Envelope: %1$d bytes</item>
+    </plurals>
+    <string name="envelope_preview">%1$s…</string>
+    <plurals name="envelope_opened">
+        <item quantity="one">Opened %1$d byte</item>
+        <item quantity="other">Opened %1$d bytes</item>
+    </plurals>
+    <string name="envelope_matches">Same as the original</string>
+    <string name="envelope_differs">Differs from the original</string>
+    <string name="envelope_error_key_creation_failed">The Keystore refused to create the key pair</string>
+    <string name="envelope_error_no_key">Create a key pair first</string>
+    <string name="envelope_error_cannot_open">This key pair cannot open the envelope. It was sealed for another one.</string>
+</resources>
