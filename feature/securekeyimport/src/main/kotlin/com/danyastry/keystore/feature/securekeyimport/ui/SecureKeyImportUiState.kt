@@ -2,7 +2,7 @@ package com.danyastry.keystore.feature.securekeyimport.ui
 
 import com.danyastry.keystore.core.keystore.KeyDetails
 
-enum class SecureImportError { WRAPPING_KEY_FAILED, IMPORT_REFUSED, CANNOT_DECRYPT }
+enum class SecureImportError { WRAPPING_KEY_FAILED, IMPORT_REFUSED, UNSUPPORTED, CANNOT_DECRYPT }
 
 data class WrappedSummary(
     val transportKeyBytes: Int,

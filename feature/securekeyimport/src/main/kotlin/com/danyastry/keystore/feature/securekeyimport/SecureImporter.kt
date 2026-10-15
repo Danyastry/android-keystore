@@ -3,6 +3,7 @@ package com.danyastry.keystore.feature.securekeyimport
 import android.os.Build
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
+import android.security.keystore.SecureKeyImportUnavailableException
 import android.security.keystore.WrappedKeyEntry
 import androidx.annotation.RequiresApi
 import com.danyastry.keystore.core.keystore.KeyDetails
@@ -10,6 +11,8 @@ import com.danyastry.keystore.core.keystore.KeystoreEntries
 import java.security.KeyPairGenerator
 import java.security.PublicKey
 import javax.crypto.SecretKey
+
+class SecureImportUnavailableException(cause: Throwable) : Exception(cause)
 
 interface SecureImporter {
     fun createWrappingKey(): PublicKey
@@ -37,7 +40,11 @@ class AndroidSecureImporter(private val entries: KeystoreEntries = KeystoreEntri
     override fun importWrapped(wrappedKey: ByteArray) {
         entries.delete(IMPORTED_ALIAS)
         val entry = WrappedKeyEntry(wrappedKey, WRAPPING_ALIAS, SecureKeyWrapper.RSA_TRANSFORMATION, unwrapSpec())
-        entries.importEntry(IMPORTED_ALIAS, entry)
+        try {
+            entries.importEntry(IMPORTED_ALIAS, entry)
+        } catch (e: SecureKeyImportUnavailableException) {
+            throw SecureImportUnavailableException(e)
+        }
     }
 
     override fun importedKey(): SecretKey? = entries.secretKey(IMPORTED_ALIAS)

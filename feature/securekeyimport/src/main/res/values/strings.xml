@@ -58,5 +58,6 @@
     <string name="securekeyimport_location_unknown">unknown</string>
     <string name="securekeyimport_error_wrapping_key_failed">The Keystore refused to create the wrapping key</string>
     <string name="securekeyimport_error_import_refused">The Keystore refused the wrapped key. It was changed or made for another device.</string>
+    <string name="securekeyimport_error_unsupported">This device\'s Keystore cannot do secure key import. Phones with a hardware Keystore (TEE or StrongBox) can.</string>
     <string name="securekeyimport_error_cannot_decrypt">The device key cannot read this message</string>
 </resources>
