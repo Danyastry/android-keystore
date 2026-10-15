@@ -29,6 +29,10 @@ class KeystoreEntries {
         keyStore.setEntry(alias, KeyStore.SecretKeyEntry(key), protection)
     }
 
+    fun importEntry(alias: String, entry: KeyStore.Entry) {
+        keyStore.setEntry(alias, entry, null)
+    }
+
     fun keyPair(alias: String): KeyPair? {
         val privateKey = keyStore.getKey(alias, null) as? PrivateKey ?: return null
         val publicKey = keyStore.getCertificate(alias)?.publicKey ?: return null

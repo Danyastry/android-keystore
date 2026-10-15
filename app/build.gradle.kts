@@ -40,6 +40,7 @@ dependencies {
     implementation(projects.feature.keyimport)
     implementation(projects.feature.keyconstraints)
     implementation(projects.feature.envelope)
+    implementation(projects.feature.securekeyimport)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)

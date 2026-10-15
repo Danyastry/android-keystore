@@ -1,0 +1,62 @@
+<resources>
+    <string name="securekeyimport_intro">A server sends a key that only this device can unwrap. The plain key never appears in this app\'s memory on the device side.</string>
+    <string name="securekeyimport_step_device">1. Device: wrapping key</string>
+    <string name="securekeyimport_device_hint">RSA-2048 in the Keystore with purpose WRAP_KEY. Only its public key goes to the server.</string>
+    <string name="securekeyimport_create_wrapping_key">Create wrapping key</string>
+    <string name="securekeyimport_public_key">Public key: %1$s</string>
+    <string name="securekeyimport_step_server">2. Server: wrap a secret key</string>
+    <string name="securekeyimport_server_hint">The server makes an AES-256 key and builds a SecureKeyWrapper (ASN.1 DER) for this device\'s public key.</string>
+    <string name="securekeyimport_wrap">Wrap on server</string>
+    <string name="securekeyimport_server_key">Server key: %1$s</string>
+    <plurals name="securekeyimport_field_transport_key">
+        <item quantity="one">encryptedTransportKey: %1$d byte (RSA-OAEP)</item>
+        <item quantity="other">encryptedTransportKey: %1$d bytes (RSA-OAEP)</item>
+    </plurals>
+    <plurals name="securekeyimport_field_iv">
+        <item quantity="one">initializationVector: %1$d byte</item>
+        <item quantity="other">initializationVector: %1$d bytes</item>
+    </plurals>
+    <plurals name="securekeyimport_field_description">
+        <item quantity="one">keyDescription: %1$d byte (AES, 256, GCM, encrypt and decrypt)</item>
+        <item quantity="other">keyDescription: %1$d bytes (AES, 256, GCM, encrypt and decrypt)</item>
+    </plurals>
+    <plurals name="securekeyimport_field_encrypted_key">
+        <item quantity="one">encryptedKey: %1$d byte (AES-GCM, description as AAD)</item>
+        <item quantity="other">encryptedKey: %1$d bytes (AES-GCM, description as AAD)</item>
+    </plurals>
+    <plurals name="securekeyimport_field_tag">
+        <item quantity="one">tag: %1$d byte</item>
+        <item quantity="other">tag: %1$d bytes</item>
+    </plurals>
+    <plurals name="securekeyimport_total">
+        <item quantity="one">SecureKeyWrapper: %1$d byte</item>
+        <item quantity="other">SecureKeyWrapper: %1$d bytes</item>
+    </plurals>
+    <string name="securekeyimport_tampered">One bit of the tag was flipped</string>
+    <string name="securekeyimport_tamper">Flip one bit</string>
+    <string name="securekeyimport_step_import">3. Device: import</string>
+    <string name="securekeyimport_import_hint">WrappedKeyEntry hands the blob to the Keystore, which unwraps it inside.</string>
+    <string name="securekeyimport_import">Import with WrappedKeyEntry</string>
+    <string name="securekeyimport_imported">AES-%1$d, origin: %2$s, stored in: %3$s</string>
+    <string name="securekeyimport_imported_hidden">The app cannot read the key bytes</string>
+    <string name="securekeyimport_origin_note">A hardware Keystore marks it securely imported. A software one, like the emulator\'s, may say imported.</string>
+    <string name="securekeyimport_step_message">4. Server sends, device reads</string>
+    <string name="securekeyimport_input_label">Message from the server</string>
+    <string name="securekeyimport_send">Encrypt on server</string>
+    <string name="securekeyimport_decrypt">Decrypt on device</string>
+    <string name="securekeyimport_message_empty">Nothing sent yet</string>
+    <string name="securekeyimport_device_read">Device read: %1$s</string>
+    <string name="securekeyimport_reset">Start over</string>
+    <string name="securekeyimport_origin_generated">generated</string>
+    <string name="securekeyimport_origin_imported">imported</string>
+    <string name="securekeyimport_origin_securely_imported">securely imported</string>
+    <string name="securekeyimport_origin_unknown">unknown</string>
+    <string name="securekeyimport_location_strongbox">StrongBox</string>
+    <string name="securekeyimport_location_tee">TEE</string>
+    <string name="securekeyimport_location_secure_hardware">secure hardware</string>
+    <string name="securekeyimport_location_software">software</string>
+    <string name="securekeyimport_location_unknown">unknown</string>
+    <string name="securekeyimport_error_wrapping_key_failed">The Keystore refused to create the wrapping key</string>
+    <string name="securekeyimport_error_import_refused">The Keystore refused the wrapped key. It was changed or made for another device.</string>
+    <string name="securekeyimport_error_cannot_decrypt">The device key cannot read this message</string>
+</resources>
