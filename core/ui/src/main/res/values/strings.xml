@@ -8,7 +8,7 @@
     <string name="category_signing_description">Prove who wrote the data and that nobody changed it</string>
     <string name="category_user_authentication_description">Keys that unlock only with a fingerprint, face or PIN</string>
     <string name="category_hardware_description">Where the key lives and how to prove it</string>
-    <string name="category_key_management_description">Import, list, rotate and delete keys</string>
+    <string name="category_key_management_description">Bring keys in and limit how long or how often they work</string>
     <string name="requirement_android">Android %1$s+</string>
     <string name="requirement_needs_android">Needs Android %1$s</string>
     <string name="mode_encrypt">Encrypt</string>
