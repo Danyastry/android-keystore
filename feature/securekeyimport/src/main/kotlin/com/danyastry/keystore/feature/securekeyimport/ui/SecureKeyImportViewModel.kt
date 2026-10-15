@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.danyastry.keystore.core.keystore.EncryptedMessage
 import com.danyastry.keystore.feature.securekeyimport.AndroidSecureImporter
+import com.danyastry.keystore.feature.securekeyimport.SecureImportUnavailableException
 import com.danyastry.keystore.feature.securekeyimport.SecureImporter
 import com.danyastry.keystore.feature.securekeyimport.SecureKeyWrapper
 import java.security.GeneralSecurityException
@@ -99,14 +100,16 @@ class SecureKeyImportViewModel(
     fun onImport() {
         val bytes = wrappedBytes ?: return
         viewModelScope.launch {
-            val refused = withContext(dispatcher) {
+            val error = withContext(dispatcher) {
                 try {
                     importer.importWrapped(bytes.copyOf())
-                    false
+                    null
+                } catch (_: SecureImportUnavailableException) {
+                    SecureImportError.UNSUPPORTED
                 } catch (_: GeneralSecurityException) {
-                    true
+                    SecureImportError.IMPORT_REFUSED
                 } catch (_: ProviderException) {
-                    true
+                    SecureImportError.IMPORT_REFUSED
                 }
             }
             val (details, isHidden) = withContext(dispatcher) { importer.importedDetails() to (importer.importedKey()?.encoded == null) }
@@ -116,7 +119,7 @@ class SecureKeyImportViewModel(
                     isImportedMaterialHidden = details != null && isHidden,
                     serverMessage = "",
                     deviceRead = "",
-                    error = if (refused) SecureImportError.IMPORT_REFUSED else null,
+                    error = error,
                 )
             }
         }

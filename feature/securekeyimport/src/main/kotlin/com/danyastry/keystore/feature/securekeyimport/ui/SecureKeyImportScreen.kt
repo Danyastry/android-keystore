@@ -205,6 +205,7 @@ private val SecureImportError.messageRes: Int
     get() = when (this) {
         SecureImportError.WRAPPING_KEY_FAILED -> R.string.securekeyimport_error_wrapping_key_failed
         SecureImportError.IMPORT_REFUSED -> R.string.securekeyimport_error_import_refused
+        SecureImportError.UNSUPPORTED -> R.string.securekeyimport_error_unsupported
         SecureImportError.CANNOT_DECRYPT -> R.string.securekeyimport_error_cannot_decrypt
     }
 

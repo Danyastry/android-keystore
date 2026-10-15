@@ -5,6 +5,7 @@ import com.danyastry.keystore.core.keystore.KeyKind
 import com.danyastry.keystore.core.keystore.KeyLocation
 import com.danyastry.keystore.core.keystore.KeyOrigin
 import com.danyastry.keystore.core.keystore.KeyPurpose
+import com.danyastry.keystore.feature.securekeyimport.SecureImportUnavailableException
 import com.danyastry.keystore.feature.securekeyimport.SecureImporter
 import com.danyastry.keystore.feature.securekeyimport.SoftwareUnwrapper
 import com.google.common.truth.Truth.assertThat
@@ -141,6 +142,18 @@ class SecureKeyImportViewModelTest {
     }
 
     @Test
+    fun `a keystore without secure import support is reported as unsupported`() = test {
+        createWrappingKey()
+        wrap()
+        importer.isSecureImportSupported = false
+
+        import()
+
+        assertThat(state.error).isEqualTo(SecureImportError.UNSUPPORTED)
+        assertThat(state.imported).isNull()
+    }
+
+    @Test
     fun `start over clears everything but the message text`() = test {
         createWrappingKey()
         wrap()
@@ -178,6 +191,7 @@ class SecureKeyImportViewModelTest {
         private var wrapping: KeyPair? = null
         private var imported: SecretKey? = null
         var failWrappingKey = false
+        var isSecureImportSupported = true
         var deleteAllCalls = 0
 
         fun replaceWrappingKey() {
@@ -193,6 +207,7 @@ class SecureKeyImportViewModelTest {
 
         override fun importWrapped(wrappedKey: ByteArray) {
             imported = null
+            if (!isSecureImportSupported) throw SecureImportUnavailableException(KeyStoreException("Secure Key Import not available"))
             val pair = wrapping ?: throw KeyStoreException("No wrapping key")
             imported = SecretKeySpec(SoftwareUnwrapper.unwrap(wrappedKey, pair.private), "AES")
         }

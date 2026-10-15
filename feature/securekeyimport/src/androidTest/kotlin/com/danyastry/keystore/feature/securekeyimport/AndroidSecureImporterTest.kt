@@ -15,6 +15,9 @@ import javax.crypto.spec.GCMParameterSpec
 import javax.crypto.spec.SecretKeySpec
 import org.junit.After
 import org.junit.Assert.assertThrows
+import org.junit.Assume.assumeFalse
+import org.junit.Assume.assumeTrue
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -24,6 +27,18 @@ class AndroidSecureImporterTest {
 
     private val importer = AndroidSecureImporter()
     private val secret = ByteArray(32).also(SecureRandom()::nextBytes)
+    private var isSecureImportSupported = false
+
+    @Before
+    fun setUp() {
+        isSecureImportSupported = try {
+            importer.importWrapped(SecureKeyWrapper.wrap(secret, importer.createWrappingKey()).bytes)
+            true
+        } catch (_: SecureImportUnavailableException) {
+            false
+        }
+        importer.deleteAll()
+    }
 
     @After
     fun tearDown() {
@@ -31,7 +46,26 @@ class AndroidSecureImporterTest {
     }
 
     @Test
+    fun wrappingKeyIsForWrappingOnly() {
+        importer.createWrappingKey()
+
+        val details = KeystoreEntries().details(AndroidSecureImporter.WRAPPING_ALIAS)!!
+
+        assertThat(details.purposes).containsExactly(KeyPurpose.WRAP_KEY)
+    }
+
+    @Test
+    fun keystoreWithoutSupportReportsItAsUnavailable() {
+        assumeFalse(isSecureImportSupported)
+        val wrapped = SecureKeyWrapper.wrap(secret, importer.createWrappingKey())
+
+        assertThrows(SecureImportUnavailableException::class.java) { importer.importWrapped(wrapped.bytes) }
+        assertThat(importer.importedKey()).isNull()
+    }
+
+    @Test
     fun importsAWrappedKeyThatCannotBeReadBack() {
+        assumeTrue(isSecureImportSupported)
         val wrapped = SecureKeyWrapper.wrap(secret, importer.createWrappingKey())
 
         importer.importWrapped(wrapped.bytes)
@@ -45,6 +79,7 @@ class AndroidSecureImporterTest {
 
     @Test
     fun importedKeyDecryptsWhatTheServerEncrypted() {
+        assumeTrue(isSecureImportSupported)
         importer.importWrapped(SecureKeyWrapper.wrap(secret, importer.createWrappingKey()).bytes)
         val server = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.ENCRYPT_MODE, SecretKeySpec(secret, "AES")) }
         val ciphertext = server.doFinal("Attack at dawn".encodeToByteArray())
@@ -57,16 +92,8 @@ class AndroidSecureImporterTest {
     }
 
     @Test
-    fun wrappingKeyIsForWrappingOnly() {
-        importer.createWrappingKey()
-
-        val details = KeystoreEntries().details(AndroidSecureImporter.WRAPPING_ALIAS)!!
-
-        assertThat(details.purposes).containsExactly(KeyPurpose.WRAP_KEY)
-    }
-
-    @Test
     fun keystoreRefusesATamperedBlob() {
+        assumeTrue(isSecureImportSupported)
         val bytes = SecureKeyWrapper.wrap(secret, importer.createWrappingKey()).bytes
         bytes[bytes.size - 1] = (bytes[bytes.size - 1].toInt() xor 1).toByte()
 
@@ -76,6 +103,7 @@ class AndroidSecureImporterTest {
 
     @Test
     fun keystoreRefusesABlobForAnotherWrappingKey() {
+        assumeTrue(isSecureImportSupported)
         val otherDevice = KeyPairGenerator.getInstance("RSA").apply { initialize(2048) }.generateKeyPair()
         importer.createWrappingKey()
 
