@@ -8,6 +8,7 @@ import com.danyastry.keystore.feature.biometric.BiometricFeature
 import com.danyastry.keystore.feature.ecdh.EcdhFeature
 import com.danyastry.keystore.feature.ecdsa.EcdsaFeature
 import com.danyastry.keystore.feature.hmac.HmacFeature
+import com.danyastry.keystore.feature.keyimport.KeyImportFeature
 import com.danyastry.keystore.feature.keyinfo.KeyInfoFeature
 import com.danyastry.keystore.feature.rsaoaep.RsaOaepFeature
 import com.danyastry.keystore.feature.strongbox.StrongBoxFeature
@@ -26,5 +27,6 @@ object FeatureRegistry {
         AuthTimeoutFeature,
         UnlockedDeviceFeature,
         EcdhFeature,
+        KeyImportFeature,
     )
 }
