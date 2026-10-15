@@ -38,6 +38,7 @@ dependencies {
     implementation(projects.feature.unlockeddevice)
     implementation(projects.feature.ecdh)
     implementation(projects.feature.keyimport)
+    implementation(projects.feature.keyconstraints)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
