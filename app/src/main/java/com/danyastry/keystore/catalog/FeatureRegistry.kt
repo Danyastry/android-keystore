@@ -13,6 +13,7 @@ import com.danyastry.keystore.feature.keyconstraints.KeyConstraintsFeature
 import com.danyastry.keystore.feature.keyimport.KeyImportFeature
 import com.danyastry.keystore.feature.keyinfo.KeyInfoFeature
 import com.danyastry.keystore.feature.rsaoaep.RsaOaepFeature
+import com.danyastry.keystore.feature.securekeyimport.SecureKeyImportFeature
 import com.danyastry.keystore.feature.strongbox.StrongBoxFeature
 import com.danyastry.keystore.feature.unlockeddevice.UnlockedDeviceFeature
 
@@ -32,5 +33,6 @@ object FeatureRegistry {
         KeyImportFeature,
         KeyConstraintsFeature,
         EnvelopeFeature,
+        SecureKeyImportFeature,
     )
 }
