@@ -1,0 +1,23 @@
+<resources>
+    <string name="keyconstraints_window_title">Validity window</string>
+    <string name="keyconstraints_window_description">setKeyValidityStart and setKeyValidityEnd. The key turns on %1$d s after it is made and turns off at %2$d s.</string>
+    <string name="keyconstraints_window_missing">No key yet</string>
+    <string name="keyconstraints_window_not_yet_valid">Not valid yet: starts in %1$d s</string>
+    <string name="keyconstraints_window_valid">Valid: expires in %1$d s</string>
+    <string name="keyconstraints_window_expired">Expired</string>
+    <string name="keyconstraints_window_attempt">At %1$d s: %2$s</string>
+    <string name="keyconstraints_limit_title">Usage limit</string>
+    <string name="keyconstraints_limit_description">setMaxUsageCount(%1$d). After the last use the Keystore deletes the key by itself.</string>
+    <string name="keyconstraints_limit_missing">No key yet</string>
+    <string name="keyconstraints_limit_uses_left">Uses left: %1$d</string>
+    <string name="keyconstraints_limit_gone">The Keystore deleted the key</string>
+    <string name="keyconstraints_limit_unsupported">Usage limits need Android 12</string>
+    <string name="keyconstraints_limit_attempt">Use %1$d: %2$s</string>
+    <string name="keyconstraints_create">Create key</string>
+    <string name="keyconstraints_use">Use</string>
+    <string name="keyconstraints_delete">Delete</string>
+    <string name="keyconstraints_creation_failed">The Keystore refused to create the key</string>
+    <string name="keyconstraints_result_allowed">allowed</string>
+    <string name="keyconstraints_result_refused">refused (%1$s)</string>
+    <string name="keyconstraints_result_missing">the key is gone</string>
+</resources>
