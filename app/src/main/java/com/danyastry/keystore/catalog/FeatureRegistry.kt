@@ -7,6 +7,7 @@ import com.danyastry.keystore.feature.authtimeout.AuthTimeoutFeature
 import com.danyastry.keystore.feature.biometric.BiometricFeature
 import com.danyastry.keystore.feature.ecdh.EcdhFeature
 import com.danyastry.keystore.feature.ecdsa.EcdsaFeature
+import com.danyastry.keystore.feature.envelope.EnvelopeFeature
 import com.danyastry.keystore.feature.hmac.HmacFeature
 import com.danyastry.keystore.feature.keyconstraints.KeyConstraintsFeature
 import com.danyastry.keystore.feature.keyimport.KeyImportFeature
@@ -30,5 +31,6 @@ object FeatureRegistry {
         EcdhFeature,
         KeyImportFeature,
         KeyConstraintsFeature,
+        EnvelopeFeature,
     )
 }
