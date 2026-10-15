@@ -2,6 +2,7 @@ package com.danyastry.keystore.core.keystore
 
 import android.os.Build
 import android.security.keystore.KeyInfo
+import android.security.keystore.KeyProtection
 import java.security.KeyFactory
 import java.security.KeyPair
 import java.security.KeyStore
@@ -23,6 +24,10 @@ class KeystoreEntries {
     }
 
     fun secretKey(alias: String): SecretKey? = keyStore.getKey(alias, null) as? SecretKey
+
+    fun importSecretKey(alias: String, key: SecretKey, protection: KeyProtection) {
+        keyStore.setEntry(alias, KeyStore.SecretKeyEntry(key), protection)
+    }
 
     fun keyPair(alias: String): KeyPair? {
         val privateKey = keyStore.getKey(alias, null) as? PrivateKey ?: return null
