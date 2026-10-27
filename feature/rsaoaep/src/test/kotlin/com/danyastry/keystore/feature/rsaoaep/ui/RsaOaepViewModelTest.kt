@@ -68,7 +68,7 @@ class RsaOaepViewModelTest {
     @Test
     fun `counts bytes, not characters`() = test {
         viewModel.onCreateKey()
-        viewModel.onInputChange("ü✓")
+        viewModel.onInputChange("\u00A3\u20AC")
         advanceUntilIdle()
 
         assertThat(state.inputBytes).isEqualTo(5)
